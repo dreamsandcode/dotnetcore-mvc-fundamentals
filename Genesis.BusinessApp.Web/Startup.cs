@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Genesis.BusinessApp.Web.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Genesis.BusinessApp.Web.Models;
 
 namespace Genesis.BusinessApp.Web
 {
@@ -19,7 +20,6 @@ namespace Genesis.BusinessApp.Web
     {
         public Startup(IConfiguration configuration)
         {
-            // this is changed
             Configuration = configuration;
         }
 
@@ -42,6 +42,10 @@ namespace Genesis.BusinessApp.Web
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            var connection = Configuration.GetValue<string>("ConnectionStrings:DefaultConnection");
+            services.AddDbContext<BusinessContext>(options => options.UseSqlServer(connection));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

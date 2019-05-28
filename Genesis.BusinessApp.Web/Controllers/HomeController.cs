@@ -10,11 +10,13 @@ namespace Genesis.BusinessApp.Web.Controllers
 {
     public class HomeController : Controller
     {
+        
         public IActionResult Index()
         {
             return View();
         }
 
+        //     /Home/About
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
@@ -22,6 +24,7 @@ namespace Genesis.BusinessApp.Web.Controllers
             return View();
         }
 
+        //     /Home/Contact
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";

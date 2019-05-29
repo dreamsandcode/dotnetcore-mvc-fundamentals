@@ -51,6 +51,8 @@ namespace Genesis.BusinessApp.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTA1NjA0QDMxMzcyZTMxMmUzMEJYSUNBbkRESEl4cHIrODNZQnNmcnE5R1lVS0QyRXlhRWhBVTN1Y1NocW89");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
